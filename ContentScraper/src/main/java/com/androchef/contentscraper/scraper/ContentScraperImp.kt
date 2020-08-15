@@ -48,33 +48,38 @@ internal class ContentScraperImp : ContentScraper {
      * @return unique word with their count in readable format.
      */
     override fun getUniqueWordsAndTheirCounts(inputString: String): String? {
-
-        // split string by space
         val allWordsList = inputString.split(" ")
 
-        // HashMap saving unique words as key and count as value.
-        val mapForWordAndCount = hashMapOf<String, Int>()
+        return if (inputString.isValid() && allWordsList.isNotEmpty()) {
+            // split string by space
 
-        allWordsList.forEach { word ->
-            // for case insensitive converting word to lower case
-            val wordInLowerCase = word.toLowerCase(Locale.getDefault())
+            // HashMap saving unique words as key and count as value.
+            val mapForWordAndCount = hashMapOf<String, Int>()
 
-            // if HashMap already has word increment it's count by 1
-            // else add this new word to HashMap.
-            if (mapForWordAndCount.containsKey(wordInLowerCase)) {
-                val earlierCount = mapForWordAndCount[wordInLowerCase]!!
-                mapForWordAndCount[wordInLowerCase] = earlierCount.plus(1)
-            } else {
-                mapForWordAndCount[wordInLowerCase] = 1
+            allWordsList.forEach { word ->
+                // for case insensitive converting word to lower case
+                val wordInLowerCase = word.toLowerCase(Locale.getDefault())
+
+                // if HashMap already has word increment it's count by 1
+                // else add this new word to HashMap.
+                if (mapForWordAndCount.containsKey(wordInLowerCase)) {
+                    val earlierCount = mapForWordAndCount[wordInLowerCase]!!
+                    mapForWordAndCount[wordInLowerCase] = earlierCount.plus(1)
+                } else {
+                    mapForWordAndCount[wordInLowerCase] = 1
+                }
             }
+
+            //beautifying string
+            val stringBuilder = StringBuilder()
+            for (wordAndItsCount in mapForWordAndCount) {
+                stringBuilder.append("* ${wordAndItsCount.key} = ${wordAndItsCount.value}\n")
+            }
+
+            stringBuilder.toString()
+        } else {
+            null
         }
 
-        //beautifying string
-        val stringBuilder = StringBuilder()
-        for (wordAndItsCount in mapForWordAndCount) {
-            stringBuilder.append("* ${wordAndItsCount.key} = ${wordAndItsCount.value}\n")
-        }
-
-        return stringBuilder.toString()
     }
 }

@@ -54,11 +54,4 @@ dependencies {
 
     //LifeCycle
     implementation Dependencies.Lifecycle.lifeCycleExtension
-
-    //Dagger2
-    implementation Dependencies.Dagger.dagger2
-    implementation Dependencies.Dagger.daggerAndroid
-    implementation Dependencies.Dagger.daggerAndroidSupport
-    kapt Dependencies.Dagger.processor
-    kapt Dependencies.Dagger.compiler
 }

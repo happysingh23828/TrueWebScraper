@@ -7,11 +7,15 @@ import io.reactivex.Single
 
 internal class RemoteContentScraperImp constructor(
     private val trueWebScraperRepository: TrueWebScraperRepository,
-    private val performActionOnRawContent: Boolean = false
+    private var performActionOnRawContent: Boolean = false
 ) :
     RemoteContentScraper {
 
     private val localContentScraper = ContentScraper.get()
+
+    override fun performActionOnRawHtmlContent(boolean: Boolean) {
+        performActionOnRawContent = boolean
+    }
 
     override fun getNthCharacter(webUrl: String, n: Int): Single<String> {
         return getWebContent(webUrl)

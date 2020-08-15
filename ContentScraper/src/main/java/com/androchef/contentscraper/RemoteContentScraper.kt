@@ -8,7 +8,7 @@ interface RemoteContentScraper {
     fun getNthCharacter(webUrl: String, n: Int): Single<String>
     fun getEveryNthCharacter(webUrl: String, n: Int): Single<String>
     fun getUniqueWordsAndTheirCounts(webUrl: String): Single<String>
-
+    fun performActionOnRawHtmlContent(boolean: Boolean)
     companion object {
         fun get(): RemoteContentScraper {
             return RemoteContentScraperImp(TrueWebScraperRepository.get())

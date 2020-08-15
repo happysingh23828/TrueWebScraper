@@ -3,6 +3,7 @@ package com.androchef.remote.imp
 import com.androchef.remote.TrueWebScraperRepository
 import com.androchef.remote.service.TrueWebScraperAPIService
 import com.androchef.remote.utils.takeOnlyValidCharacters
+import com.androchef.remote.utils.transform
 import io.reactivex.Single
 import org.jsoup.Jsoup
 import retrofit2.Call
@@ -20,7 +21,7 @@ internal class TrueWebScraperRepositoryImp constructor(private val trueWebScrape
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     if (response.isSuccessful) {
                         response.body()?.let {
-                            emitter.onSuccess(response.body() ?: "")
+                            emitter.onSuccess(it)
                         } ?: kotlin.run {
                             emitter.onError(Exception("No valid result found."))
                         }
@@ -30,7 +31,7 @@ internal class TrueWebScraperRepositoryImp constructor(private val trueWebScrape
                 }
 
                 override fun onFailure(call: Call<String>, t: Throwable) {
-                    emitter.onError(t)
+                    emitter.onError(t.transform())
                 }
             })
         }
@@ -57,7 +58,7 @@ internal class TrueWebScraperRepositoryImp constructor(private val trueWebScrape
                 }
 
                 override fun onFailure(call: Call<String>, t: Throwable) {
-                    emitter.onError(t)
+                    emitter.onError(t.transform())
                 }
             })
         }

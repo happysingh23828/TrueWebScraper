@@ -11,7 +11,6 @@ dependencies {
     implementation project(Dependencies.Module.remote)
 
     //RxJava
-    api Dependencies.RxJava.rxAndroid
     implementation Dependencies.RxJava.rxjava2
     implementation Dependencies.RxJava.rxrelay2
 

@@ -7,6 +7,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dependencies.Kotlin.kotlin_stdlib_jdk7
 
+    //Modules
+    implementation project(Dependencies.Module.remote)
+
     //Testing
     testImplementation Dependencies.Test.test_junit
 

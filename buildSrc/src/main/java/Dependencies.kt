@@ -21,7 +21,8 @@ object Dependencies {
     }
 
     object Module {
-
+        const val contentScraper = ":ContentScraper"
+        const val remote = ":remote"
     }
 
     object Facebook {
@@ -60,6 +61,7 @@ object Dependencies {
         const val adapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:${Version.retrofit}"
         const val converterGson = "com.squareup.retrofit2:converter-gson:${Version.retrofit}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+        const val converterScalar = "com.squareup.retrofit2:converter-scalars:${Version.retrofit}"
     }
 
     object AndroidX {
@@ -110,9 +112,6 @@ object Dependencies {
     }
 
     const val javax = "javax.inject:javax.inject:${Version.javaxInject}"
-    const val javaxjsr250 = "javax.annotation:jsr250-api:${Version.javaxAnnotation}"
-    const val parceler = "org.parceler:parceler-api:${Version.parcelerVersion}"
-    const val parcelerProcessor = "org.parceler:parceler-api:${Version.parcelerVersion}"
-    const val jodaTime = "joda-time:joda-time:${Version.jodaTime}"
+    const val jsoup = "org.jsoup:jsoup:${Version.jsoup}"
 
 }

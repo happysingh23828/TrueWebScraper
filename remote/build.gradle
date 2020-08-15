@@ -1,0 +1,32 @@
+import dependencies.Dependencies
+
+apply plugin: Dependencies.Plugins.JAVA_LIBRARY
+apply plugin: Dependencies.Plugins.KOTLIN
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.Kotlin.kotlin_stdlib_jdk7
+
+    //Unit Testing
+    testImplementation Dependencies.Test.mockito
+    testImplementation Dependencies.Test.test_junit
+
+    //Retrofit
+    implementation Dependencies.Retrofit2.retrofit
+    implementation Dependencies.Retrofit2.adapterRxjava2
+    implementation Dependencies.Retrofit2.converterScalar
+
+    //RxJava
+    implementation Dependencies.RxJava.rxAndroid
+    implementation Dependencies.RxJava.rxjava2
+    implementation Dependencies.RxJava.rxrelay2
+
+    //JavaX
+    implementation Dependencies.javax
+
+    //Scrapping
+    implementation Dependencies.jsoup
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

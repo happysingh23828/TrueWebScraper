@@ -9,8 +9,7 @@ interface ContentScraper {
 
     companion object {
 
-        private val contentScraper =
-            ContentScraperImp()
+        private val contentScraper = ContentScraperImp()
 
         fun get(): ContentScraper {
             return contentScraper

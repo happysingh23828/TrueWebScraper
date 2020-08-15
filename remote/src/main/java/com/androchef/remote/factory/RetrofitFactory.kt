@@ -8,7 +8,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
-object RetrofitFactory {
+internal object RetrofitFactory {
 
     //not considering base Url , as it will take URL parameter while creating apiService instance.
     private const val DEFAULT_BASE_URL = "http://androchef.com/"

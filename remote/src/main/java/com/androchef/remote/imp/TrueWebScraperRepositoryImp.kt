@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class TrueWebScraperRepositoryImp @Inject constructor(private val trueWebScraperAPIService: TrueWebScraperAPIService) :
+internal class TrueWebScraperRepositoryImp constructor(private val trueWebScraperAPIService: TrueWebScraperAPIService) :
     TrueWebScraperRepository {
 
     override fun getRawWebContent(webUrl: String): Single<String> {

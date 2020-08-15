@@ -10,6 +10,14 @@ dependencies {
     //Modules
     implementation project(Dependencies.Module.remote)
 
+    //RxJava
+    api Dependencies.RxJava.rxAndroid
+    implementation Dependencies.RxJava.rxjava2
+    implementation Dependencies.RxJava.rxrelay2
+
+    //JavaX
+    implementation Dependencies.javax
+
     //Testing
     testImplementation Dependencies.Test.test_junit
 

@@ -1,0 +1,13 @@
+import dependencies.Dependencies
+
+apply plugin: Dependencies.Plugins.JAVA_LIBRARY
+apply plugin: Dependencies.Plugins.KOTLIN
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.Kotlin.kotlin_stdlib_jdk7
+
+    //Testing
+    testImplementation Dependencies.Test.test_junit
+
+}

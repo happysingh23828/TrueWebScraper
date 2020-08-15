@@ -1,2 +1,3 @@
+include ':ContentScraper'
 include ':app'
 rootProject.name = "TrueWebScraper"
